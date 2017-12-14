@@ -1,0 +1,7 @@
+//String-3 > withoutString
+public String withoutString(String base, String remove) {
+  base = base.replaceAll(remove, "");
+  base = base.replaceAll(remove.toUpperCase(), "");
+  base = base.replaceAll(remove.toLowerCase(), "");
+  return base;
+}

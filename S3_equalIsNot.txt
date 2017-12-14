@@ -1,0 +1,13 @@
+//String-3 > equalIsNot
+public boolean equalIsNot(String str) {
+  String noIs = str.replaceAll("is", "");
+  String noNot = str.replaceAll("not", "");
+  
+  int nIs = (str.length() - noIs.length())/2;
+  int nNot = (str.length() - noNot.length())/3;
+  
+  if(nIs == nNot){
+    return true;
+  }
+  else return false;
+}

@@ -1,0 +1,9 @@
+//String-3 > gHappy
+public boolean gHappy(String str) {
+  String noGg = str.replaceAll("g{2,}", "");
+  String noG = str.replaceAll("g", "");
+  if(noGg.length() > noG.length()){
+    return false;
+  }
+  else return true;
+}

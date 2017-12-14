@@ -1,0 +1,20 @@
+//String-3 > maxBlock
+public int maxBlock(String str) {
+  int count = 1;
+  int max = 1;
+  if (str.length() > 1){
+    for(int i = 1; i < str.length(); i++){
+      if(str.charAt(i) == str.charAt(i-1)){
+        count++;
+        if (count > max){
+          max = count;
+        }
+      }
+      else {
+        count = 1;
+      }
+    }
+  }
+  else if(str.length() == 0) max = 0;
+  return max;
+}

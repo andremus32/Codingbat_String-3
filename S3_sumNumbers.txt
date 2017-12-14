@@ -1,0 +1,18 @@
+//String-3 > sumNumbers
+public int sumNumbers(String str) {
+  int sum = 0;
+  String tmp = "";
+  for (int i = 0; i < str.length(); i++) {
+    if(Character.isDigit(str.charAt(i))){
+       tmp += String.valueOf(str.charAt(i));
+    }
+    else if(tmp.length() > 0){
+     sum += Integer.parseInt(tmp);
+     tmp = "";
+    }
+    if(tmp.length() > 0 && i == str.length()-1){
+      sum += Integer.parseInt(tmp);
+    }
+  }
+  return sum;
+}

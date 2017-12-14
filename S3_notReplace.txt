@@ -1,0 +1,42 @@
+//String-3 > notReplace
+public String notReplace(String str) {
+  for (int i = 0; i < str.length(); i++) {
+    if(isTarget(str, i)) {
+      str = replaceIs(str, i);
+      i += 4;
+    }
+  }
+  return str;
+}
+
+public boolean isTarget(String str, int i){
+  boolean isIs;
+    if(i < str.length()-1){
+      isIs = (str.charAt(i) == 'i' && str.charAt(i+1) == 's');
+    }
+    else isIs = false;
+  boolean start = (i == 0);
+  boolean end = (i == str.length()-1);
+  boolean letterToRight;
+    if(i < str.length()-2){
+      letterToRight = Character.isLetter(str.charAt(i+2));
+    }
+  else letterToRight = false;
+  boolean letterToLeft;
+    if(i>0){
+      letterToLeft = Character.isLetter(str.charAt(i-1));
+    }
+    else letterToLeft = false;
+
+  boolean target1 = (isIs && start && !letterToRight);
+  boolean target2 = (isIs && end && !letterToLeft);
+  boolean target3 = (isIs && !start && !end && !letterToLeft && !letterToRight);
+  boolean target4 = (isIs && start && end);
+
+  return (target1 || target2 || target3 || target4);
+  }
+
+  public String replaceIs(String str, int i){
+    str = str.substring(0, i + 2) + " not" + str.substring(i + 2);
+    return str;
+  }
